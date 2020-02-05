@@ -1,0 +1,38 @@
+---
+title: "individual1"
+author: "Han Sun"
+date: "2020.2.5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Qestion set(Individual)
+```{r}
+choco <- read.csv("http://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+
+```{r}
+hist(choco$Rating)
+```
+
+```{r}
+#The ratings distributed is a little left skewed. There is a outlier when the rating is at 5.#
+```
+
+```{r}
+fit <- lm(choco$Rating~choco$Cocoa.Pct)
+summary(fit)
+plot(choco$Cocoa.Pct,choco$Rating)
+abline(coefficients(fit),lwd=2,lty=2,col="red")
+```
+
+```{r}
+#There is a negative linear relationship between the cocoa.Pct and the rating. When the cocoa.Pct increases, the rating decreases.#
+```
+
+
+
