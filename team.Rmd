@@ -1,0 +1,34 @@
+---
+title: "team"
+author: "HanSun, XinyiZhu"
+date: "2020.2.10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+choco <- read.csv("http://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+```
+### What did you do in lab1 and how this time is different
+We learned to push and pull the documents through the Git. In lab2 we also did the data exploration on chocolate rating.
+
+### Question set(team)
+#### 1. What is the overall number of chocolate rated?
+```{r}
+library(plyr)
+count(choco$Rating)
+str(choco)
+```
+#### 2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+```{r}
+
+```
+#### 3. Which are the three locations with the most ratings? How do ratings compare across these company locations?
+```{r}
+
+```
+#### 4. Brainstorm and write down an interesting question that can be answer from the dataset. The question should not duplicate the questions above.
+
+#### 5.Answer the question from the dataset.
+
+#### 6. Write one paragraph commenting on the workflow.
