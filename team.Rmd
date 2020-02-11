@@ -1,5 +1,5 @@
 ---
-title: "team"
+title: "DS202_Team"
 author: "HanSun, XinyiZhu"
 date: "2020.2.10"
 output: html_document
@@ -15,10 +15,12 @@ We learned to push and pull the documents through the Git. In lab2 we also did t
 ### Question set(team)
 #### 1. What is the overall number of chocolate rated?
 ```{r}
+str(choco)
 library(plyr)
 count(choco$Rating)
-str(choco)
 ```
+
+The total number of chocolate rated is 1852.
 
 #### 2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
 ```{r}
@@ -28,24 +30,24 @@ hist(choco$Review.Date)
 #### 3. Which are the three locations with the most ratings? How do ratings compare across these company locations?
 ```{r}
 table <- sort.int(table(choco$Company.Location), decreasing = TRUE)
+table[1:3]
 barplot(head(table))
 ```
 
-## The top 3 locations are USA, France, and Canada. USA's rating is dramatically larger than other 2 company locations, and France's rating is a little bit larger than Canada's rating but they are almost similar.
+The top 3 locations are USA, France, and Canada. USA's rating is dramatically larger than other 2 company locations, and France's rating is a little bit larger than Canada's rating but they are almost similar.
 
 #### 4. Brainstorm and write down an interesting question that can be answer from the dataset. The question should not duplicate the questions above.
 
-### In 2015, which company has the lowest rating?
+In 2015, which company has the lowest rating?
 
 #### 5.Answer the question from the dataset.
 ```{r} 
 ## In 2015, which company has the lowest rating?
 date2015<- choco[choco$Review.Date == 2015, ]
-date2015$Rating
 date2015[which.min(date2015$Rating), ]
 ```
-### Therefore, 1011 Love Bar has the lowest rating in 2015.
+Therefore, 1011 Love Bar has the lowest rating in 2015.
 
 #### 6. Write one paragraph commenting on the workflow.
-###  In this Lab work, we collaborate with our teammates to practice "push and pull files" through github in terminal and R fundamentals and basic graphics, such as finding a min value and a bar plot. And, we learnt how to create an interesting question by ourselves based on the dataset and solved it. 
+In this Lab work, we collaborate with our teammates to practice "push and pull files" through github in terminal and R fundamentals and basic graphics, such as finding a min value and a bar plot. And, we learnt how to create an interesting question by ourselves based on the dataset and solved it. 
 
