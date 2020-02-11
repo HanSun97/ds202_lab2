@@ -19,33 +19,28 @@ library(plyr)
 count(choco$Rating)
 str(choco)
 ```
+
 #### 2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
 ```{r}
-rela <- table(choco$Review.Date, choco$Rating)
-barplot(rela)
+hist(choco$Review.Date)
 ```
+
 #### 3. Which are the three locations with the most ratings? How do ratings compare across these company locations?
 ```{r}
-choco3.5<- choco[choco$Rating == 3.5, ]
-choco3.5$Company.Location
-loc<- choco3.5$Company.Location
-names(loc)<-choco3.5$Company.Location
-sort(loc)
-sort(loc, decreasing = TRUE)
-biggest3<-sort(loc, decreasing = TRUE)[1:3]
-biggest3
+table <- sort.int(table(choco$Company.Location), decreasing = TRUE)
+barplot(head(table))
 ```
+
+## The top 3 locations are USA, France, and Canada. USA's rating is dramatically larger than other 2 company locations, and France's rating is a little bit larger than Canada's rating but they are almost similar.
+
 #### 4. Brainstorm and write down an interesting question that can be answer from the dataset. The question should not duplicate the questions above.
 
 ### In 2015, which company has the lowest rating?
 
 #### 5.Answer the question from the dataset.
-```{r}
+```{r} 
 ## In 2015, which company has the lowest rating?
 date2015<- choco[choco$Review.Date == 2015, ]
-date2015$City
-length(date2015$Company)#length: length of a vector
-length(unique(date2015$Company))
 date2015$Rating
 date2015[which.min(date2015$Rating), ]
 ```
